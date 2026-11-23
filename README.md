@@ -1,2 +1,2 @@
-# Aulas de C
-Aulas da linguagem C
+# Aulas de linguagens de programação
+conjuntos de aulas da linguagens que estou aprendendo
