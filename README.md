@@ -1,2 +1,2 @@
 # Aulas de linguagens de programação
-conjuntos de aulas da linguagens que estou aprendendo
+conjuntos de aulas das linguagens que estou aprendendo
