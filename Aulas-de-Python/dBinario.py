@@ -1,5 +1,25 @@
 #
-bn = int(input("\nDigite um numero em binario de 8 digitos: "))
+t = 1
+bn = 0
+
+while t != 0:
+    bn = int(input("\nDigite um numero em binario de 8 digitos: "))
+    un1 = bn // 1 % 10
+    un2 = bn // 10 % 10
+    un3 = bn // 100 % 10
+    un4 = bn // 1000 % 10
+    un5 = bn // 10000 % 10
+    un6 = bn // 100000 % 10
+    un7 = bn // 1000000 % 10
+    un8 = bn // 10000000 % 10
+    if bn > 11111111:
+        print("\nNumero binario invalido. Tente novamente1")
+    else:
+        if 0 < un1 > 1 or 0 < un2 > 1 or 0 < un3 > 1 or 0 < un4 > 1 or 0 < un5 > 1 or 0 < un6 > 1 or 0 < un7 > 1 or 0 < un8 > 1:
+            print("\nNumero binario invalido. Tente novamente2")
+        else:
+            t = 0
+
 q = 0
 v = 0
 
@@ -12,18 +32,16 @@ while v != 1:
     else:
         print("\nEscolha uma alternativa valida.")
 
-
-un1 = bn // 1 % 10
-un2 = bn // 10 % 10
-un3 = bn // 100 % 10
-un4 = bn // 1000 % 10
-un5 = bn // 10000 % 10
-un6 = bn // 100000 % 10
-un7 = bn // 1000000 % 10
-un8 = bn // 10000000 % 10
 sm = 0
-dec = '0'
-b = '1'
+dec = ''
+b = ''
+
+if un8 == 1:
+    dec += '0'
+    b += '1'
+else:
+    dec += '1'
+    b += '0'
 
 if un7 == 1:
     sm += 64
@@ -134,14 +152,22 @@ if q == 1:
     if dec[7] == '1':
         sm += 1
 
-    
+n = ''
+s = ''
+
+#if dec[0] == '1':
+#    s = '-'
+if bn == 10000000:    
+    n = '-'
+if bn == 00000000:
+    sm = 0
 
 if q == 2:
     print('\nO numero binario:')
     print(f'\n{un8} | {un7} | {un6} | {un5} | {un4} | {un3} | {un2} | {un1}\n')
-    print(f'Equivale a {sm} em decimal.\n')
+    print(f'Equivale a {n}{sm} em decimal.\n')
 
 else:
     print('\nO numero binario:')
     print(f'\n{b}\n')
-    print(f'Equivale a -{sm} ou {sm} em decimal.\n')
+    print(f'Equivale a -{sm} em decimal.\n')

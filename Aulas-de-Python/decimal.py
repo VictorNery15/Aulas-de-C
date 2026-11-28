@@ -1,12 +1,12 @@
 #decimal para binario
 import os
-dc = -128
+dc = -150
 q = 1
 v = 0
 
 while(dc < -127 or dc > 127):
     dc = int(input("\nDigite um numero em decimal entre -127 e 127: "))
-    if (dc < -127 or dc > 127):
+    if (dc < -127 or dc > 128):
         print("\nEscolha um numero valido.")
 
 if dc == 0:
@@ -26,7 +26,7 @@ tts = dc
 bc = ''
 
 
-print("\nNumero binario:")
+print("\nNumero binario sinal de magnetude:")
 while(ct != 8):
 
     ct += 1 
@@ -43,7 +43,7 @@ while(ct != 8):
     if ct == 1:
         if tts > 0:
             print("0`", end='')
-            bc +=' 1`'
+            bc +=' 0`'
             
         else: 
             print("1`", end='')
@@ -127,42 +127,43 @@ print("\n\nComplemento de 2:")
 bc = bc.split()
 
 
-if dc <= 0 and q == 1:
 
-    if bc[7] == '0':
-        bc[7] = bc[7].replace('0','1')
+
+if bc[7] == '0':
+    bc[7] = bc[7].replace('0','1')
+else:
+    bc[7] = bc[7].replace('1','0')
+    if bc[6] == '0':
+        bc[6] = bc[6].replace('0','1')
     else:
-        bc[7] = bc[7].replace('1','0')
-        if bc[6] == '0':
-            bc[6] = bc[6].replace('0','1')
-        else:
-            bc[6] = bc[6].replace('1','0')
-            if bc[5] == '0':
-                bc[5] = bc[5].replace('0', '1')
-            else: 
-                bc[5] = bc[5].replace('1','0')
-                if bc[4] == '0':
-                    bc[4] = bc[4].replace('0', 1)
+        bc[6] = bc[6].replace('1','0')
+        if bc[5] == '0':
+            bc[5] = bc[5].replace('0', '1')
+        else: 
+            bc[5] = bc[5].replace('1','0')
+            if bc[4] == '0':
+                bc[4] = bc[4].replace('0', 1)
+            else:
+                bc[4] = bc[4].replace('1','0') 
+                if bc[3] == '0':
+                    bc[3] = bc[3].replace('0', 1)
                 else:
-                    bc[4] = bc[4].replace('1','0') 
-                    if bc[3] == '0':
-                        bc[3] = bc[3].replace('0', 1)
+                    bc[3] = bc[3].replace('1','0') 
+                    if bc[2] == '0':
+                        bc[2] = bc[2].replace('0', 1)
                     else:
-                        bc[3] = bc[3].replace('1','0') 
-                        if bc[2] == '0':
-                            bc[2] = bc[2].replace('0', 1)
-                        else:
-                            bc[2] = bc[2].replace('1','0') 
-                            if bc[1] == '0':
-                                bc[1] = bc[1].replace('0', '1')
+                        bc[2] = bc[2].replace('1','0') 
+                        if bc[1] == '0':
+                            bc[1] = bc[1].replace('0', '1')
                             #'''
 
-    bc = ''.join(bc)
-    if dc == 0:
-        bc = '00000000'
-    
-    print(bc)
-    print()
 
-else:
-    print("Sem complemento de 2. Pois o numero e positivo.\n")
+bc = ''.join(bc)
+
+if dc == 0:
+    bc = '0`0000000'
+elif dc == 127:
+    bc = '0`1111111'
+
+print(bc)
+print()
